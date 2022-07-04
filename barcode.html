@@ -3,11 +3,34 @@
 
 <head>
   <meta charset="utf-8">
-  <title>바코드 생성기</title>
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="Description"
-    content="바코드 생성기. 바코드 만들기. CODE128, EAN(EAN-13, EAN-8,EAN-5, EAN-2, UPC (A), UPC (E)), CODE39, ITF(ITF, ITF-14), MSI(MSI10, MSI11, MSI1010, MSI1110), Pharmacode, Codabar 타입 바코드 지원.">
+
+  <meta name="description"
+    content="Generate barcode. Scan barcode. CODE128, EAN(EAN-13, EAN-8,EAN-5, EAN-2, UPC (A), UPC (E)), CODE39, ITF(ITF, ITF-14), MSI(MSI10, MSI11, MSI1010, MSI1110), Pharmacode, Codabar" />
+  <meta name="author" content="ccusean" />
+
+  <meta property="og:url" content="https://ccusean.com/barcode">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Barcode(Generator, Scanner) - ccusean">
+  <meta property="og:description"
+    content="Generate barcode. Scan barcode. CODE128, EAN(EAN-13, EAN-8,EAN-5, EAN-2, UPC (A), UPC (E)), CODE39, ITF(ITF, ITF-14), MSI(MSI10, MSI11, MSI1010, MSI1110), Pharmacode, Codabar">
+  <meta property="og:image" content="https://ccusean.com/img/ccusean.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="256">
+
+  <!--   
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@ccusean">
+  <meta name="twitter:creator" content="@ccusean">
+  <meta name="twitter:title" content="ccusean Home">
+  <meta name="twitter:description" content="ccusean Home">
+  <meta name="twitter:image" content="https://ccusean.com/img/ccusean.png">
+  -->
+
+  <title>Barcode(Generator, Scanner) - ccusean</title>
+
+  <link rel="canonical" href="https://ccusean.com/barcode" />
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/cyborg/bootstrap.min.css"
     integrity="sha256-fO58jx4RDvdVgLJ4VWCNdWLLQF5cXb34EtdoGxlcJ68=" crossorigin="anonymous">
@@ -19,17 +42,19 @@
 <body class="d-flex flex-column h-100 py-3">
   <main class="container" style="max-width: 800px;">
 
-    <h1 class="text-center">바코드 생성기</h1>
+    <h1 class="text-center">Barcode Generator</h1>
 
     <figure class="text-center">
       <blockquote class="blockquote">
-        <p class="mb-0">쉽고 간편하게 바코드를 생성해 보세요.</p>
+        <p class="mb-0">Generate Barcode simple easy.</p>
+        <p class="mb-0">CODE128, EAN(EAN-13, EAN-8,EAN-5, EAN-2, UPC (A), UPC (E)), CODE39, ITF(ITF, ITF-14), MSI(MSI10,
+          MSI11, MSI1010, MSI1110), Pharmacode, Codabar barcod type is supported.</p>
       </blockquote>
     </figure>
 
     <div class="py-3 mb-3 text-center bg-light rounded">
       <canvas id="barcode"></canvas>
-      <span id="invalid" class="text-danger d-none">Not valid data for this barcode type!</span>
+      <span id="invalid" class="text-danger d-none">Invalid barcode type!</span>
     </div>
 
     <div class="mb-3">
@@ -252,7 +277,7 @@
     integrity="sha256-9SEPo+fwJFpMUet/KACSwO+Z/dKMReF9q4zFhU/fT9M=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"
     integrity="sha256-4wfZSJrKSYX44cm8JG6MJ1oJGVPFOeK3tQtRHv6llQk=" crossorigin="anonymous"></script>
-  <script src="../js/barcode.min.js"></script>
+  <script src="./js/barcode.min.js"></script>
 </body>
 
 </html>
