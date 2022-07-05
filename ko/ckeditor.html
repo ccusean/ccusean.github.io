@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko" class="h-100">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" content="dddddddddd" />
+  <meta name="author" content="꾸션" />
+
+  <meta property="og:url" content="https://ccusean.com">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="tttttttttt">
+  <meta property="og:description" content="dddddddddd">
+  <meta property="og:image" content="https://ccusean.com/img/ccusean.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="256">
+
+  <meta name="twitter:card" content="summary">
+  <!-- <meta name="twitter:site" content="@ccusean">
+  <meta name="twitter:creator" content="@ccusean"> -->
+  <meta name="twitter:title" content="tttttttttt">
+  <meta name="twitter:description" content="dddddddddd">
+  <meta name="twitter:image" content="https://ccusean.com/img/ccusean.png">
+
+  <title>tttttttttt - 꾸션</title>
+
+  <link rel="canonical" href="https://ccusean.com/ko/" />
+  <link rel="icon" href="https://ccusean.com/img/favicon.png" sizes="128x128" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/cyborg/bootstrap.min.css"
+    integrity="sha256-fO58jx4RDvdVgLJ4VWCNdWLLQF5cXb34EtdoGxlcJ68=" crossorigin="anonymous">
+
+  <!-- Google adsense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6660796116261251"
+    crossorigin="anonymous"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K2PE88RRTF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-K2PE88RRTF');
+  </script>
+</head>
+
+<body class="d-flex flex-column h-100 py-3">
+  <main class="container">
+    <h1>
+      CKEditor 5 <small class="text-muted">with all free plugins</small>
+    </h1>
+    <p class="lead">
+      WYSIWYG(What You See Is What You Get)형태의 HTML Rich Text Editor로 유명한 CKEditor 5입니다.
+      <br>
+      Free 플러그인을 모두 적용한 버전입니다.
+    </p>
+    <p>
+      <strong>적용된 플러그인:</strong> <small>Alignment, AutoFormat, AutoImage, AutoLink, AutoSave, Base64UploadAdapter,
+        BlockQuote,
+        Bold, CKFinderUploadAdapter, CloudServices, Code, CodeBlocks, DataFilter, DataSchema, Watchdog, FindAndReplace,
+        FontBackgroundColor, FontColor, FontFamily, FontSize, GeneralHTMLSupport, Heading,Highlight,HorizontalLine,
+        HTMLComment, HTMLEmbed, Image, BlockImage, ImageCaption, InlineImage, ImageInsert, ImageResize, ImageStyle,
+        ImageToolbar, ImageUpload, Indent, IndentBlock, Italic, Link, LinkImage, List, ListProperties, MediaEmbed,
+        Mention, PageBreak, PasteFromOffice, RemoveFormat, RestrictedEditingMode, SimpleUploadAdapter, SourceEditing,
+        SpecialCharacters, SpecialCharactersArrows, SpecialCharactersCurrency, SpecialCharactersEssentials,
+        SpecialCharactersLatin, SpecialCharactersMathematical, SpecialCharactersText, StandardEditingMode,
+        Strikethrough,
+        Subscript , Superscript , Table , TableCaption, TableCellProperties, TableColumnResize, TableProperties, Table
+        Toolbar, TextPartLanguage, TextTransformation, Title, TodoList, Underline, WordCount</small>
+    </p>
+    <p>
+      <strong>제거된 플러그인:</strong> <small>Markdown, MediaEmbedToolbar</small>
+    </p>
+    <div class="editor"></div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha256-9SEPo+fwJFpMUet/KACSwO+Z/dKMReF9q4zFhU/fT9M=" crossorigin="anonymous"></script>
+
+  <script src="../lib/ckeditor5-34.2.0/build/ckeditor.js"></script>
+  <script>
+    const watchdog = new CKSource.EditorWatchdog();
+
+    window.watchdog = watchdog;
+
+    watchdog.setCreator((element, config) => {
+      return CKSource.Editor
+        .create(element, config)
+        .then(editor => {
+          return editor;
+        })
+    });
+
+    watchdog.setDestructor(editor => {
+      return editor.destroy();
+    });
+
+    watchdog.on('error', handleError);
+
+    watchdog
+      .create(document.querySelector('.editor'), {
+        licenseKey: '',
+        removePlugins: ['Markdown', 'MediaEmbedToolbar'],
+        shouldNotGroupWhenFull: true,
+      })
+      .catch(handleError);
+
+    function handleError(error) {
+      console.error('Oops, something went wrong!');
+      console.error('Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:');
+      console.warn('Build id: azxpvvm40vir-7kdjv6tl87mb');
+      console.error(error);
+    }
+  </script>
+</body>
+
+</html>
