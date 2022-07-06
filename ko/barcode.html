@@ -65,7 +65,7 @@
 
     <div class="py-3 mb-3 text-center bg-light rounded">
       <canvas id="barcode"></canvas>
-      <span id="invalid" class="text-danger d-none">지원되지 않는 바코드 타입!</span>
+      <span id="invalid" class="text-danger d-none">잘못된 바코드 유형!</span>
     </div>
 
     <div class="mb-3">
@@ -105,7 +105,7 @@
       <ul class="list-group collapse mt-1" id="barcodeSettings">
         <li class="list-group-item ps-4">
           <div class="row justify-content-center">
-            <label for="barWidth" class="col-12 col-md-3 col-form-label">Bar width</label>
+            <label for="barWidth" class="col-12 col-md-3 col-form-label">바 넓이</label>
             <div class="col-10 col-md-8 d-flex align-items-center">
               <input id="barWidth" type="range" class="form-range" min="1" max="4" step="1" value="2">
             </div>
@@ -114,7 +114,7 @@
         </li>
         <li class="list-group-item ps-4">
           <div class="row justify-content-center">
-            <label for="barHeight" class="col-12 col-md-3 col-form-label">Bar height</label>
+            <label for="barHeight" class="col-12 col-md-3 col-form-label">바 높이</label>
             <div class="col-10 col-md-8 d-flex align-items-center">
               <input id="barHeight" type="range" class="form-range" min="10" max="150" step="5" value="100">
             </div>
@@ -123,7 +123,7 @@
         </li>
         <li class="list-group-item ps-4">
           <div class="row justify-content-center">
-            <label for="margin" class="col-12 col-md-3 col-form-label">Margin</label>
+            <label for="margin" class="col-12 col-md-3 col-form-label">여백</label>
             <div class="col-10 col-md-8 d-flex align-items-center">
               <input id="margin" type="range" class="form-range" min="0" max="25" step="1" value="10">
             </div>
@@ -144,13 +144,13 @@
         </li>
         <li class="list-group-item ps-4">
           <div class="row justify-content-center">
-            <label for="backgroundColor" class="col-12 col-md-3 col-form-label">Background color</label>
+            <label for="backgroundColor" class="col-12 col-md-3 col-form-label">배경색</label>
             <div class="col-12 col-md-9 d-flex align-items-center">
               <input id="backgroundColor" type="color" class="form-control form-control-color p-0 me-3"
                 value="#FFFFFF" />
               <div class="form-check form-check-inline ms-3">
                 <input class="form-check-input" type="checkbox" id="backgroundTransparent" value="ff">
-                <label class="form-check-label" for="backgroundTransparent">Transparent</label>
+                <label class="form-check-label" for="backgroundTransparent">투명하게</label>
               </div>
             </div>
           </div>
@@ -162,7 +162,7 @@
       <div class="row justify-content-center mb-1">
         <div class="col-12 col-md-12 d-flex align-items-center">
           <div class="input-group">
-            <span class="input-group-text">Text</span>
+            <span class="input-group-text">문구</span>
             <input type="text" class="form-control" id="userInput" value="Example 1234" placeholder="" autofocus>
             <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#textSettings"
               aria-expanded="false" aria-controls="textSettings">
@@ -178,50 +178,50 @@
       <ul class="list-group collapse mt-1" id="textSettings">
         <li class="list-group-item ps-4">
           <div class="row justify-content-center">
-            <label for="show" class="col-12 col-md-3 col-form-label">Show text</label>
+            <label for="show" class="col-12 col-md-3 col-form-label">텍스트 보이기</label>
             <div class="col-12 col-md-9 d-flex align-items-center">
               <div class="btn-group" role="group" aria-label="Show/Hide text button group">
                 <input type="radio" class="btn-check" name="showText" id="show" value="true" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="show">Show</label>
+                <label class="btn btn-outline-primary" for="show">보이기</label>
                 <input type="radio" class="btn-check" name="showText" id="hide" value="false" autocomplete="off">
-                <label class="btn btn-outline-primary" for="hide">Hide</label>
+                <label class="btn btn-outline-primary" for="hide">숨기기</label>
               </div>
             </div>
           </div>
         </li>
         <li class="list-group-item ps-4">
           <div class="row justify-content-center">
-            <label for="left" class="col-12 col-md-3 col-form-label">Text align</label>
+            <label for="left" class="col-12 col-md-3 col-form-label">텍스트 정렬</label>
             <div class="col-12 col-md-9 d-flex align-items-center">
               <div class="btn-group" role="group" aria-label="Text algin button group">
                 <input type="radio" class="btn-check" name="textAlign" id="left" value="left" autocomplete="off">
-                <label class="btn btn-outline-primary" for="left">Left</label>
+                <label class="btn btn-outline-primary" for="left">왼쪽</label>
                 <input type="radio" class="btn-check" name="textAlign" id="center" value="center" autocomplete="off"
                   checked>
-                <label class="btn btn-outline-primary" for="center">Center</label>
+                <label class="btn btn-outline-primary" for="center">가운데</label>
                 <input type="radio" class="btn-check" name="textAlign" id="right" value="right" autocomplete="off">
-                <label class="btn btn-outline-primary" for="right">Right</label>
+                <label class="btn btn-outline-primary" for="right">오른쪽</label>
               </div>
             </div>
           </div>
         </li>
         <li class="list-group-item ps-4">
           <div class="row justify-content-center">
-            <label for="top" class="col-12 col-md-3 col-form-label">Text position</label>
+            <label for="top" class="col-12 col-md-3 col-form-label">텍스트 위치</label>
             <div class="col-12 col-md-9 d-flex align-items-center">
               <div class="btn-group" role="group" aria-label="Text position button group">
                 <input type="radio" class="btn-check" name="textPosition" id="top" value="top" autocomplete="off">
-                <label class="btn btn-outline-primary" for="top">Top</label>
+                <label class="btn btn-outline-primary" for="top">위</label>
                 <input type="radio" class="btn-check" name="textPosition" id="bottom" value="bottom" autocomplete="off"
                   checked>
-                <label class="btn btn-outline-primary" for="bottom">Bottom</label>
+                <label class="btn btn-outline-primary" for="bottom">아래</label>
               </div>
             </div>
           </div>
         </li>
         <li class="list-group-item ps-4">
           <div class="row justify-content-center">
-            <label for="textMargin" class="col-12 col-md-3 col-form-label">Text margin</label>
+            <label for="textMargin" class="col-12 col-md-3 col-form-label">텍스트 여백</label>
             <div class="col-10 col-md-8 d-flex align-items-center">
               <input id="textMargin" type="range" class="form-range" min="-15" max="40" step="1" value="0">
             </div>
@@ -231,7 +231,7 @@
         </li>
         <li class="list-group-item ps-4">
           <div class="row justify-content-center">
-            <label for="fontFamily" class="col-12 col-md-3 col-form-label">Font</label>
+            <label for="fontFamily" class="col-12 col-md-3 col-form-label">폰트</label>
             <div class="col-12 col-md-9 d-flex align-items-center">
               <select class="form-select" id="fontFamily" style="font-family: monospace" aria-label="Font family">
                 <option value="monospace" style="font-family: monospace" selected>Monospace</option>
@@ -245,7 +245,7 @@
         </li>
         <li class="list-group-item ps-4">
           <div class="row justify-content-center">
-            <label for="fontSize" class="col-12 col-md-3 col-form-label">Font size</label>
+            <label for="fontSize" class="col-12 col-md-3 col-form-label">폰트 크기</label>
             <div class="col-10 col-md-8 d-flex align-items-center">
               <input id="fontSize" type="range" class="form-range" min="8" max="36" step="1" value="20">
             </div>
@@ -255,14 +255,14 @@
         </li>
         <li class="list-group-item ps-4">
           <div class="row justify-content-center">
-            <label for="bold" class="col-12 col-md-3 col-form-label">Font options</label>
+            <label for="bold" class="col-12 col-md-3 col-form-label">폰트 설정</label>
             <div class="col-12 col-md-9 d-flex align-items-center">
               <div class="btn-group" role="group" aria-label="Font options button group">
                 <input type="checkbox" class="btn-check" name="fontOption" id="bold" autocomplete="off" value="bold">
-                <label class="btn btn-outline-primary fw-bold" for="bold">Bold</label>
+                <label class="btn btn-outline-primary fw-bold" for="bold">굵게</label>
                 <input type="checkbox" class="btn-check" name="fontOption" id="italic" autocomplete="off"
                   value="italic">
-                <label class="btn btn-outline-primary fst-italic" for="italic">Italic</label>
+                <label class="btn btn-outline-primary fst-italic" for="italic">이탤릭체</label>
               </div>
             </div>
           </div>
@@ -279,7 +279,7 @@
           <path
             d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
         </svg>
-        Download
+        다운로드
       </button>
     </div>
   </main>
