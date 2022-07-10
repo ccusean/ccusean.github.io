@@ -36,32 +36,31 @@
     integrity="sha256-fO58jx4RDvdVgLJ4VWCNdWLLQF5cXb34EtdoGxlcJ68=" crossorigin="anonymous">
 
   <!-- Google adsense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6660796116261251"
-    crossorigin="anonymous"></script>
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6660796116261251"
+    crossorigin="anonymous"></script> -->
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K2PE88RRTF"></script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-K2PE88RRTF"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-K2PE88RRTF');
-  </script>
+  </script> -->
 </head>
 
 <body class="d-flex flex-column h-100 py-3">
   <main class="container" style="max-width: 800px;">
 
-    <h1 class="text-center">바코드 생성기</h1>
-
-    <figure class="text-center">
-      <blockquote class="blockquote">
-        <p class="mb-0">쉽고 간편하게 바코드를 생성해 보세요.</p>
-        <p class="mb-0">지원되는 바코드 타입: CODE128, EAN(EAN-13, EAN-8,EAN-5, EAN-2, UPC (A), UPC (E)), CODE39, ITF(ITF,
-          ITF-14), MSI(MSI10,
-          MSI11, MSI1010, MSI1110), Pharmacode, Codabar</p>
-      </blockquote>
-    </figure>
+    <div class="text-center">
+      <h1 class="">바코드 생성기</h1>
+      <h5 class="lead">쉽고 간편하게 바코드를 생성해 보세요.</h5>
+      <p>
+        지원되는 바코드 타입: CODE128, EAN(EAN-13, EAN-8,EAN-5, EAN-2, UPC (A), UPC (E)), CODE39, ITF(ITF,
+        ITF-14), MSI(MSI10,
+        MSI11, MSI1010, MSI1110), Pharmacode, Codabar
+      </p>
+    </div>
 
     <div class="py-3 mb-3 text-center bg-light rounded">
       <canvas id="barcode"></canvas>
@@ -69,8 +68,8 @@
     </div>
 
     <div class="mb-3">
-      <div class="row justify-content-center">
-        <div class="col-12 col-md-12 d-flex align-items-center">
+      <div class="row mb-1">
+        <div class="col-12 col-md-12">
           <div class="input-group">
             <span class="input-group-text">바코드 타입</span>
             <select class="form-select" id="barcodeType" aria-label="Barcode Type">
@@ -80,6 +79,8 @@
               <option value="CODE128C">CODE128 C</option>
               <option value="EAN13">EAN13</option>
               <option value="EAN8">EAN8</option>
+              <option value="EAN5">EAN5</option>
+              <option value="EAN2">EAN2</option>
               <option value="UPC">UPC</option>
               <option value="CODE39">CODE39</option>
               <option value="ITF14">ITF14</option>
@@ -92,7 +93,7 @@
               <option value="pharmacode">Pharmacode</option>
             </select>
             <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#barcodeSettings"
-              aria-expanded="false" aria-controls="barcodeSettings">
+              aria-expanded="true" aria-controls="barcodeSettings">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sliders"
                 viewBox="0 0 16 16">
                 <path fill-rule="evenodd"
@@ -102,67 +103,147 @@
           </div>
         </div>
       </div>
-      <ul class="list-group collapse mt-1" id="barcodeSettings">
-        <li class="list-group-item ps-4">
-          <div class="row justify-content-center">
-            <label for="barWidth" class="col-12 col-md-3 col-form-label">바 넓이</label>
-            <div class="col-10 col-md-8 d-flex align-items-center">
-              <input id="barWidth" type="range" class="form-range" min="1" max="4" step="1" value="2">
-            </div>
-            <div class="col-2 col-md-1 d-flex align-items-center" id="barWidthDisplay"></div>
-          </div>
-        </li>
-        <li class="list-group-item ps-4">
-          <div class="row justify-content-center">
-            <label for="barHeight" class="col-12 col-md-3 col-form-label">바 높이</label>
-            <div class="col-10 col-md-8 d-flex align-items-center">
-              <input id="barHeight" type="range" class="form-range" min="10" max="150" step="5" value="100">
-            </div>
-            <div class="col-2 col-md-1 d-flex align-items-center" id="barHeightDisplay"></div>
-          </div>
-        </li>
-        <li class="list-group-item ps-4">
-          <div class="row justify-content-center">
-            <label for="margin" class="col-12 col-md-3 col-form-label">여백</label>
-            <div class="col-10 col-md-8 d-flex align-items-center">
-              <input id="margin" type="range" class="form-range" min="0" max="25" step="1" value="10">
-            </div>
-            <div class="col-2 col-md-1 d-flex align-items-center" id="marginDisplay"></div>
-          </div>
-        </li>
-        <li class="list-group-item ps-4">
-          <div class="row justify-content-center">
-            <label for="foregroundColor" class="col-12 col-md-3 col-form-label">Color</label>
-            <div class="col-12 col-md-9 d-flex align-items-center">
-              <input id="foregroundColor" type="color" class="form-control form-control-color p-0" value="#000000" />
-              <!-- <div class="form-check form-check-inline ms-3">
-                <input class="form-check-input" type="checkbox" id="foregroundTransparent" value="ff">
-                <label class="form-check-label" for="foregroundTransparent">Transparent</label>
-              </div> -->
-            </div>
-          </div>
-        </li>
-        <li class="list-group-item ps-4">
-          <div class="row justify-content-center">
-            <label for="backgroundColor" class="col-12 col-md-3 col-form-label">배경색</label>
-            <div class="col-12 col-md-9 d-flex align-items-center">
-              <input id="backgroundColor" type="color" class="form-control form-control-color p-0 me-3"
-                value="#FFFFFF" />
-              <div class="form-check form-check-inline ms-3">
-                <input class="form-check-input" type="checkbox" id="backgroundTransparent" value="ff">
-                <label class="form-check-label" for="backgroundTransparent">투명하게</label>
+      <ul class="list-group show" id="barcodeSettings">
+        <li class="list-group-item ps-4" id="ean128Ui">
+          <div class="row align-items-center">
+            <div class="col-12 col-form-label d-flex align-items-center">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="ean128">
+                <label class="form-check-label" for="ean128">GS1-128/EAN-128 인코딩</label>
               </div>
             </div>
+          </div>
+        </li>
+        <li class="list-group-item ps-4 d-none" id="flatUi">
+          <div class="row align-items-center">
+            <div class="col col-form-label d-flex align-items-center">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="flat">
+                <label class="form-check-label" for="flat">평평하게</label>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item ps-4 d-none" id="lastCharUi">
+          <div class="row align-items-center">
+            <div class="col-auto col-form-label d-flex align-items-center">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="lastCharEnable">
+                <label class="form-check-label" for="lastCharEnable">끝 문자</label>
+              </div>
+              <div class="col-auto">
+                <input type="text" class="form-control" id="lastChar" value=">" maxlength="1" size="1">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item ps-4 d-none" id="mod43Ui">
+          <div class="row align-items-center">
+            <div class="col col-form-label d-flex align-items-center">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="mod43">
+                <label class="form-check-label" for="mod43">Mod43 체크섬</label>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item ps-4">
+          <div class="row align-items-center">
+            <div class="col-12 col-md-2 col-form-label">넓이</div>
+            <div class="col-10 col-md-9 d-flex align-items-center">
+              <input id="barWidth" type="range" class="form-range" min="1" max="4" step="1" value="2">
+            </div>
+            <div class="col-2 col-md-1" id="barWidthValue"></div>
+          </div>
+        </li>
+        <li class="list-group-item ps-4">
+          <div class="row align-items-center">
+            <div class="col-12 col-md-2 col-form-label">높이</div>
+            <div class="col-10 col-md-9 d-flex align-items-center">
+              <input id="barHeight" type="range" class="form-range" min="10" max="150" step="5" value="100">
+            </div>
+            <div class="col-2 col-md-1" id="barHeightValue"></div>
+          </div>
+        </li>
+        <li class="list-group-item ps-4">
+          <div class="row align-items-center">
+            <div class="col-12 col-md-2 col-form-label">여백</div>
+            <div class="col-10 col-md-9 d-flex align-items-center">
+              <input id="margin" type="range" class="form-range" min="0" max="25" step="1" value="10">
+            </div>
+            <div class="col-2 col-md-1" id="marginValue"></div>
+          </div>
+        </li>
+        <!-- <li class="list-group-item ps-4">
+          <div class="row align-items-center">
+            <div class="col-12 col-md-2 col-form-label">위 여백</div>
+            <div class="col-10 col-md-9 d-flex align-items-center">
+              <input id="marginTop" type="range" class="form-range" min="0" max="25" step="1" value="10">
+            </div>
+            <div class="col-2 col-md-1" id="marginTopValue"></div>
+          </div>
+        </li>
+        <li class="list-group-item ps-4">
+          <div class="row align-items-center">
+            <div class="col-12 col-md-2 col-form-label">아래 여백</div>
+            <div class="col-10 col-md-9 d-flex align-items-center">
+              <input id="marginBottom" type="range" class="form-range" min="0" max="25" step="1" value="10">
+            </div>
+            <div class="col-2 col-md-1" id="marginBottomValue"></div>
+          </div>
+        </li>
+        <li class="list-group-item ps-4">
+          <div class="row align-items-center">
+            <div class="col-12 col-md-2 col-form-label">왼쪽 여백</div>
+            <div class="col-10 col-md-9 d-flex align-items-center">
+              <input id="marginLeft" type="range" class="form-range" min="0" max="25" step="1" value="10">
+            </div>
+            <div class="col-2 col-md-1" id="marginLeftValue"></div>
+          </div>
+        </li>
+        <li class="list-group-item ps-4">
+          <div class="row align-items-center">
+            <div class="col-12 col-md-2 col-form-label">오른쪽 여백</div>
+            <div class="col-10 col-md-9 d-flex align-items-center">
+              <input id="marginRight" type="range" class="form-range" min="0" max="25" step="1" value="10">
+            </div>
+            <div class="col-2 col-md-1" id="marginRightValue"></div>
+          </div>
+        </li> -->
+        <li class="list-group-item ps-4">
+          <div class="row align-items-center">
+            <div class="col-12 col-md-2 col-form-label">색상</div>
+            <div class="col-3 col-md-2 d-flex align-items-center">
+              <input id="foregroundColor" type="color" class="form-control form-control-color p-0 me-3"
+                value="#000000" />
+            </div>
+            <div class="col-7 col-md-7 d-flex align-items-center">
+              <input id="foregroundAlpha" type="range" class="form-range" min="0" max="100" step="5" value="100">
+            </div>
+            <div class="col-2 col-md-1" id="foregroundAlphaValue">100%</div>
+          </div>
+        </li>
+        <li class="list-group-item ps-4">
+          <div class="row align-items-center">
+            <div class="col-12 col-md-2 col-form-label">배경색</div>
+            <div class="col-3 col-md-2 d-flex align-items-center">
+              <input id="backgroundColor" type="color" class="form-control form-control-color p-0 me-3"
+                value="#FFFFFF" />
+            </div>
+            <div class="col-7 col-md-7 d-flex align-items-center">
+              <input id="backgroundAlpha" type="range" class="form-range" min="0" max="100" step="5" value="100">
+            </div>
+            <div class="col-2 col-md-1" id="backgroundAlphaValue">100%</div>
           </div>
         </li>
       </ul>
     </div>
 
     <div class="mb-3">
-      <div class="row justify-content-center mb-1">
-        <div class="col-12 col-md-12 d-flex align-items-center">
+      <div class="row mb-1">
+        <div class="col-12 col-md-12">
           <div class="input-group">
-            <span class="input-group-text">문구</span>
+            <span class="input-group-text">텍스트</span>
             <input type="text" class="form-control" id="userInput" value="Example 1234" placeholder="" autofocus>
             <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#textSettings"
               aria-expanded="false" aria-controls="textSettings">
@@ -175,24 +256,21 @@
           </div>
         </div>
       </div>
-      <ul class="list-group collapse mt-1" id="textSettings">
+      <ul class="list-group collapse" id="textSettings">
         <li class="list-group-item ps-4">
-          <div class="row justify-content-center">
-            <label for="show" class="col-12 col-md-3 col-form-label">텍스트 보이기</label>
-            <div class="col-12 col-md-9 d-flex align-items-center">
-              <div class="btn-group" role="group" aria-label="Show/Hide text button group">
-                <input type="radio" class="btn-check" name="showText" id="show" value="true" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="show">보이기</label>
-                <input type="radio" class="btn-check" name="showText" id="hide" value="false" autocomplete="off">
-                <label class="btn btn-outline-primary" for="hide">숨기기</label>
+          <div class="row align-items-center">
+            <div class="col col-form-label d-flex align-items-center">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="true" id="showText" checked>
+                <label class="form-check-label" for="showText">표시</label>
               </div>
             </div>
           </div>
         </li>
         <li class="list-group-item ps-4">
-          <div class="row justify-content-center">
-            <label for="left" class="col-12 col-md-3 col-form-label">텍스트 정렬</label>
-            <div class="col-12 col-md-9 d-flex align-items-center">
+          <div class="row align-items-center">
+            <div class="col-12 col-md-2 col-form-label">정렬</div>
+            <div class="col-12 col-md-10 d-flex align-items-center">
               <div class="btn-group" role="group" aria-label="Text algin button group">
                 <input type="radio" class="btn-check" name="textAlign" id="left" value="left" autocomplete="off">
                 <label class="btn btn-outline-primary" for="left">왼쪽</label>
@@ -206,9 +284,9 @@
           </div>
         </li>
         <li class="list-group-item ps-4">
-          <div class="row justify-content-center">
-            <label for="top" class="col-12 col-md-3 col-form-label">텍스트 위치</label>
-            <div class="col-12 col-md-9 d-flex align-items-center">
+          <div class="row align-items-center">
+            <div class="col-12 col-md-2 col-form-label">위치</div>
+            <div class="col-12 col-md-10 d-flex align-items-center">
               <div class="btn-group" role="group" aria-label="Text position button group">
                 <input type="radio" class="btn-check" name="textPosition" id="top" value="top" autocomplete="off">
                 <label class="btn btn-outline-primary" for="top">위</label>
@@ -220,19 +298,19 @@
           </div>
         </li>
         <li class="list-group-item ps-4">
-          <div class="row justify-content-center">
-            <label for="textMargin" class="col-12 col-md-3 col-form-label">텍스트 여백</label>
-            <div class="col-10 col-md-8 d-flex align-items-center">
+          <div class="row align-items-center">
+            <div class="col-12 col-md-2 col-form-label">여백</div>
+            <div class="col-10 col-md-9 d-flex align-items-center">
               <input id="textMargin" type="range" class="form-range" min="-15" max="40" step="1" value="0">
             </div>
-            <div class="col-2 col-md-1 d-flex align-items-center" id="textMarginDisplay">
+            <div class="col-2 col-md-1" id="textMarginValue">
             </div>
           </div>
         </li>
         <li class="list-group-item ps-4">
-          <div class="row justify-content-center">
-            <label for="fontFamily" class="col-12 col-md-3 col-form-label">폰트</label>
-            <div class="col-12 col-md-9 d-flex align-items-center">
+          <div class="row align-items-center">
+            <div class="col-12 col-md-2 col-form-label">폰트</div>
+            <div class="col-12 col-md-10 d-flex align-items-center">
               <select class="form-select" id="fontFamily" style="font-family: monospace" aria-label="Font family">
                 <option value="monospace" style="font-family: monospace" selected>Monospace</option>
                 <option value="sans-serif" style="font-family: sans-serif">Sans-serif</option>
@@ -244,19 +322,19 @@
           </div>
         </li>
         <li class="list-group-item ps-4">
-          <div class="row justify-content-center">
-            <label for="fontSize" class="col-12 col-md-3 col-form-label">폰트 크기</label>
-            <div class="col-10 col-md-8 d-flex align-items-center">
+          <div class="row align-items-center">
+            <div class="col-12 col-md-2 col-form-label">폰트 크기</div>
+            <div class="col-10 col-md-9 d-flex align-items-center">
               <input id="fontSize" type="range" class="form-range" min="8" max="36" step="1" value="20">
             </div>
-            <div class="col-2 col-md-1 d-flex align-items-center" id="fontSizeDisplay">
+            <div class="col-2 col-md-1" id="fontSizeValue">
             </div>
           </div>
         </li>
         <li class="list-group-item ps-4">
-          <div class="row justify-content-center">
-            <label for="bold" class="col-12 col-md-3 col-form-label">폰트 설정</label>
-            <div class="col-12 col-md-9 d-flex align-items-center">
+          <div class="row align-items-center">
+            <div class="col-12 col-md-2 col-form-label">폰트 설정</div>
+            <div class="col-12 col-md-10 d-flex align-items-center">
               <div class="btn-group" role="group" aria-label="Font options button group">
                 <input type="checkbox" class="btn-check" name="fontOption" id="bold" autocomplete="off" value="bold">
                 <label class="btn btn-outline-primary fw-bold" for="bold">굵게</label>
@@ -288,7 +366,7 @@
     integrity="sha256-9SEPo+fwJFpMUet/KACSwO+Z/dKMReF9q4zFhU/fT9M=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"
     integrity="sha256-4wfZSJrKSYX44cm8JG6MJ1oJGVPFOeK3tQtRHv6llQk=" crossorigin="anonymous"></script>
-  <script src="/js/barcode.min.js"></script>
+  <script src="../js/barcode.js"></script>
 </body>
 
 </html>
