@@ -1,3 +1,3 @@
-# ccusean.com
+# ccusean.github.io
 
-꾸션 홈페이지
+꾸션 GitHub
